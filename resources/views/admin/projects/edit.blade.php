@@ -70,6 +70,17 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Project Technology</label>
+                            <div>
+                                @foreach ($technologies as $technology)
+                                    <div class="form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="technologies[]" id="tech-{{$technology->id}}" value="{{$technology->id}}" {{$project->technologies->contains($technology->id) ? 'checked' : ''}}>
+                                        <label for="" class="form-check-label ms-1 badge rounded-pill text-black">{{$technology->name}}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" name="description" id="description" cols="30" rows="5" placeholder="Description..." >{{ old('description') ?? $project->description }}</textarea>
                         </div>

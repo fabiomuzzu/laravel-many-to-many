@@ -25,9 +25,13 @@
                             <h5 class="card-title">{{$project['name']}}</h5>
                             <p class="card-text">{{ $project->type ? $project->type->name : 'Without type' }}</p>
                             @forelse ($project->technologies as $technology)
-                                <span class="card-text">{{$technology->name}}</span>
+                                <div>
+                                    <span>#{{$technology->name}}</span>
+                                </div>
                             @empty
-                                <span>There are no technologies</span>
+                                <div>
+                                    <span>There are no technologies</span>
+                                </div>
                             @endforelse
                             <a class="card-text" href="{{$project['repository_link']}}">Repository link</a>
                             <p class="card-text">{{$project['description']}}</p>
